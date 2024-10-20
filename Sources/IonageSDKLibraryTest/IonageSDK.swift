@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 @available(macOS 10.15, *)
+@available(iOS 13.0, *)
 public class IonageSDK {
     private var apiKey: String = ""
     private var mapsKey: String = ""
