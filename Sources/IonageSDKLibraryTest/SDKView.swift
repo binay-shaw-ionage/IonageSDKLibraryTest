@@ -1,7 +1,11 @@
 import SwiftUI
 
 public struct SDKView: View {
-    public init() {}
+    
+    let apiKey: String
+    let mapsKey: String
+    
+//    public init() {}
     
     @available(macOS 10.15, *)
     @available(iOS 13.0, *)
@@ -12,6 +16,11 @@ public struct SDKView: View {
                 .padding()
             Text("This is your home or login screen.")
                 .font(.subheadline)
+            
+            VStack {
+                Text("API Key: \(apiKey)")
+                Text("Maps Key: \(mapsKey)")
+            }
         }
     }
 }
