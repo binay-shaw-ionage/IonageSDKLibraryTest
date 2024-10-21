@@ -1,14 +1,7 @@
-//
-//  File.swift
-//  IonageSDKLibraryTest
-//
-//  Created by Binay Shaw on 20/10/24.
-//
-
-import Foundation
 import SwiftUI
+import UIKit
 
-@available(macOS 10.15, *)
+
 @available(iOS 13.0, *)
 public class IonageSDK {
     private var apiKey: String = ""
@@ -30,8 +23,12 @@ public class IonageSDK {
         return self
     }
 
-    @MainActor public func launch() -> some View {
-        SDKView(apiKey: apiKey, mapsKey: mapsKey)
+    @MainActor public func launch() {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let rootViewController = windowScene.windows.first?.rootViewController {
+            let sdkView = UIHostingController(rootView: SDKView(apiKey: apiKey, mapsKey: mapsKey))
+            sdkView.modalPresentationStyle = .fullScreen
+            rootViewController.present(sdkView, animated: true, completion: nil)
+        }
     }
 }
-

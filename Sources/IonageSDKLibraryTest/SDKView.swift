@@ -7,7 +7,6 @@ public struct SDKView: View {
     
 //    public init() {}
     
-    @available(macOS 10.15, *)
     @available(iOS 13.0, *)
     public var body: some View {
         VStack {
